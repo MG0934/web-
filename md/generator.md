@@ -1,7 +1,8 @@
 ### generator
 ---
 #### generator
-- 特殊的函数,执行中间可以暂停
+- 特殊的函数,执行中间可以暂停、
+- 注意.不能使用箭头函数
 ```JavaScript
 
     function *show(){
@@ -56,8 +57,8 @@
 
 ```
 图解原理：
-![yield01原理](../assets/yield01.png)
-![yield02原理](../assets/yield02.png)
+![yield01原理](../assets/picture/yield01.png)
+![yield02原理](../assets/picture/yield02.png)
 
 ```javaScript
     //返回
