@@ -77,6 +77,9 @@ if(login){
 }
 
 ```
+
+- 原理实现
+[sea.js原生实现](../example/es6/modules/modules.html)
 #### node.js
 
 #### ES6
