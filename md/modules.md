@@ -79,7 +79,7 @@ if(login){
 ```
 
 - 原理实现
-[sea.js原生实现](../example/es6/modules/modules.html)
+[sea.js原生实现,只能实现一层require依赖导入,存在多层处理问题,属于js原理理解不到造成](../example/es6/modules/modules.html)
 #### node.js
 
 #### ES6
