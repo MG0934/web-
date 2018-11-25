@@ -115,3 +115,4 @@
 ```
 
 #### 手写Permise
+[手写permise](../example/es6/promise/permise.html)

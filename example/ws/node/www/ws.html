@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WS</title>
+
+    <script src="http://localhost:8080/socket.io/socket.io.js" charset="utf-8"></script>
+    <style>
+        .mine{
+            background: aqua
+        }
+    </style>
+    <script>
+
+        let sock = io.connect("ws://localhost:8080");
+
+
+        window.onload = function () {
+
+            let username = '';
+
+            let oBtn1 = document.getElementById('btn1');
+
+            let oBtn2 = document.getElementById('btn2');
+
+            let oUser = document.getElementById('user');
+
+            let oPass = document.getElementById('pass');
+
+            let oText = document.getElementById('text1');
+
+            let oSend = document.getElementById('btn_send');
+  
+
+            oBtn1.onclick = function () {
+                sock.emit('reg', oUser.value, oPass.value);
+            }
+
+            oBtn2.onclick = function () {
+                sock.emit('login', oUser.value, oPass.value);
+            }
+
+            oSend.onclick = function(){
+                sock.emit('msg',oText.value)
+            }
+        }
+
+
+        sock.on('reg_ret', (code, msg) => {
+            if (code == 1) {
+                alert('注册失败,' + msg)
+            } else {
+                alert(msg)
+            }
+        })
+
+        sock.on('login_ret', (code, msg) => {
+            if (code == 1) {
+                alert('登录失败,' + msg)
+            } else {
+                alert(`'${msg}',欢迎登录！`)
+                username = msg;
+            }
+        })
+
+
+
+        sock.on('msg_ret', (code,name,txt) => {
+            if (code == 1) {
+                if(name==''){
+                    alert(txt)
+                }else{
+                    alert('消息发送失败,' + txt)
+                }
+            } else {
+                let oLi = document.createElement('li')
+                oLi.className='mine'
+                oLi.innerHTML=`<h4>${username}</h4><p>${document.getElementById('text1').value}</p>`
+                document.getElementById('oli').appendChild(oLi);
+            }
+        })
+
+        sock.on('msg', (code,name,txt) => {
+            if (code == 1) {
+                alert('消息接收失败,' + msg)
+            } else {
+                let oLi = document.createElement('li')
+                oLi.innerHTML=`<h4>${name}</h4><p>${txt}</p>`
+                document.getElementById('oli').appendChild(oLi);
+            }
+        })
+
+    </script>
+</head>
+
+<body>
+    <pre>用户名:</pre> <input type="text" id="user" />
+    <br>
+    <pre>密  码:</pre> <input type="text" id='pass'>
+    <br>
+    <input type="button" value="注册" id='btn1'>
+    <input type="button" value="登陆" id='btn2'>
+    <br>
+
+    <hr>
+
+    <textarea id="text1" cols="80" rows="4"></textarea>
+    <br>
+    <input type="button" value="发送" id='btn_send'>
+    <br>
+    <br>
+    消息内容：
+    <ul id='oli'>
+    </ul>
+</body>
+
+</html>
