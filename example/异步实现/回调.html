@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <script type="text/javascript">
+        function ass(fn,value){
+            alert(value+'主函数执行')
+
+            setTimeout(() => {
+                return fn(value); 
+            },0);
+
+            value = '处理完成的值';
+        }
+
+        let reslut = ass(function(value){
+            return  value+'回调函数执行';
+        },'传给主函数的参数123');
+
+        alert(reslut)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

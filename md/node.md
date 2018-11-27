@@ -50,3 +50,17 @@
 
     2.下载目录
         依赖包在安装bower-components安装目录下。
+
+
+##### nodejs的基础使用
+- 特点
+
+    - 性能高,java的86倍
+    - 跟前台配合开发方便
+    - 适合前端人员入门
+- java与node对比
+    
+    - java适合做大型项目,企业开发
+    - node只适合写小型项目,工具型项目,中间层语言
+- 手写http服务器实战
+[手写服务器nodejs实现](../example/node/server.js)
