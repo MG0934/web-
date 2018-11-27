@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>video</title>
+    <script>
+        window.onload  = function(){
+            let oV = document.getElementById('v1')
+            let oBtn1 = document.getElementById('btn1')
+            let oBtn2 = document.getElementById('btn2')
+            let oBtn3 = document.getElementById('btn3')
+            let oBtn4 = document.getElementById('btn4')
+            let oChild = document.querySelector('.videoChild')
+            oBtn1.onclick=function(){
+                oV.play();
+            }
+            oBtn2.onclick=function(){
+                oV.pause();
+            }
+            oBtn3.onclick=function(){
+                oV.pause();
+                oV.currentTime=0
+            }
+            oBtn4.onclick=function(){
+                alert(oV.currentTime+'|'+oV.duration)
+                alert(oV.volume)
+            }
+
+            oV.addEventListener('timeupdate',function(){
+                console.log(oV.currentTime)
+                if(oV.currentTime>1&&oV.currentTime<2){
+                   // alert('请登录！')
+                }
+                oChild.style.width=parseInt(100*(oV.currentTime/oV.duration))+'%'
+            })
+        }
+    </script>
+    <style>
+        .videoFather{
+            width: 800px;
+            height: 8px;
+            background: gray;
+        }
+        .videoChild{
+            width: 0px;
+            height: 8px;
+            background:yellow;
+        }
+    </style>
+</head>
+<body>
+        <video src="static/111.mp4" autoplay="" loop="" poster="" preload="auto" id='v1' muted='muted' width="800">
+            你的浏览器不支持
+        </video>
+        <br>
+        <div class="videoFather">
+            <div class="videoChild"></div>
+        </div>
+        <br>
+        <input type="button" value="播放" id='btn1'>
+        <input type="button" value="暂停" id='btn2'>
+        <input type="button" value="停止" id='btn3'>
+        <input type="button" value="查看当前进度" id='btn4'>
+</body>
+</html>
