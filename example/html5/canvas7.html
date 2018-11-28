@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>canvas</title>
+
+  <script>
+    window.onload = function () {
+
+      let c1 = document.getElementById('cancas1')
+
+      let ctx = c1.getContext('2d')
+
+      let cx = 400;
+
+      let cy = 400;
+
+      let r = 200;
+
+      let startAng = 0;
+
+      let endAng = 45;
+
+      ctx.arc(cx, cy, r, d2a(startAng-90), d2a(endAng-90), false);
+
+      ctx.stroke()
+    }
+
+    function d2a(n) {
+      return n * Math.PI / 180
+    }
+  </script>
+</head>
+
+<body>
+  <canvas height="800px" width="800px" id="cancas1"></canvas>
+</body>
+
+</html>

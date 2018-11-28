@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>canvas</title>
+    <script>
+
+        window.onload = function () {
+            let oC = document.getElementById('canvas1')
+
+            let gd = oC.getContext('2d') 
+
+            //矩形
+
+            gd.rect(50,50,50,50);          
+            gd.stroke();
+
+            //直接画图
+            gd.strokeRect(100,100,100,100)
+        
+            //填充
+            gd.fillStyle='yellow'
+            gd.fillRect(200,200,150,150)
+
+            //第三种
+        }
+
+    </script>
+    <style>
+        .canvasCss{
+            width: 602px;
+            height: 802px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id='canvas1' height="800" width="600">
+            您的浏览器不支持canvas,请升级浏览器,或使用谷歌浏览器
+    </canvas>
+</body>
+
+</html>

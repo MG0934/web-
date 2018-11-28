@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>canvas</title>
+    <script>
+
+        window.onload = function () {
+            let oC = document.getElementById('canvas1')
+
+            let gd = oC.getContext('2d')
+
+            //弧形  
+
+            // 2PI 一圈
+
+            // 360 一圈
+            //所以一弧度 = 0.18   
+            //  角度转弧度 *PI/180
+            //  弧度转角度 *180/PI
+            gd.beginPath();
+            gd.arc(75, 100, 35, 0, (90 * Math.PI) / 180, false)
+            gd.stroke();
+
+            gd.beginPath();
+            gd.arc(175, 100, 35, 0, (180 * Math.PI) / 180, false)
+            gd.stroke();
+
+            gd.beginPath();
+            gd.arc(275, 100, 35, 0, (270 * Math.PI) / 180, false)
+            gd.stroke();
+
+            gd.beginPath();
+            gd.arc(375, 100, 35, 0, (360 * Math.PI) / 180, false)
+            gd.stroke();
+        }
+    </script>
+    <style>
+        .canvasCss {
+            width: 602px;
+            height: 802px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id='canvas1' height="800" width="600">
+        您的浏览器不支持canvas,请升级浏览器,或使用谷歌浏览器
+    </canvas>
+</body>
+
+</html>

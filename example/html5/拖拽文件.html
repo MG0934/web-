@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>拖拽文件</title>
+
+    <style>
+        #div1 {
+
+            width: 400px;
+            height: 200px;
+            background: #cccccc;
+            border: 1px solid black;
+            margin: 50px auto 0;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+            let oDiv = document.getElementById("div1")
+
+            oDiv.addEventListener('dragenter', function () {
+                oDiv.innerHTML = '释放鼠标'
+            }, false)
+
+            oDiv.addEventListener('dragleave', function () {
+                oDiv.innerHTML = '将文件拖拽至此区域'
+            }, false)
+
+            oDiv.addEventListener('dragover', function (ev) {
+                ev.preventDefault();
+
+                console.log('拖住文件悬停在区域中')
+            }, false)
+
+            oDiv.addEventListener('drop', function (ev) {
+                
+                ev.preventDefault();
+        
+                console.log(ev.dataTransfer.files)
+
+                console.log('拖住文件悬停在区域中,且松手') 
+
+            }, false);
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <div id="div1">将文件拖拽至此区域</div>
+
+</body>
+
+</html>
