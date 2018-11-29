@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>canvas</title>
+  <script>
+    window.onload = function () {
+
+      let c1 = document.getElementById('cancas1')
+
+      let ctx = c1.getContext('2d')
+      //简单用法
+      // let oImg = new Image();
+
+      // oImg.src = '../../assets/picture/download.png';
+
+      // oImg.onload=function(){
+
+      // ctx.drawImage(oImg,100,100)
+ 
+      // }
+
+      //复杂用法
+      // img,sx,sy,sw,sh,dx,dy,dw,dh
+      ctx.drawImage(oImg,100,100)
+ 
+      }
+    }
+
+  </script>
+</head>
+
+<body>
+  <canvas height="800px" width="800px" id="cancas1"></canvas>
+</body>
+
+</html>

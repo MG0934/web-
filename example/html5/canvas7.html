@@ -5,7 +5,6 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>canvas</title>
-
   <script>
     window.onload = function () {
 
@@ -18,14 +17,47 @@
       let cy = 400;
 
       let r = 200;
-
+      
       let startAng = 0;
 
-      let endAng = 45;
+      let endAng = 112;
 
-      ctx.arc(cx, cy, r, d2a(startAng-90), d2a(endAng-90), false);
+      function pei(startAng,endAng,color){
 
-      ctx.stroke()
+        ctx.beginPath();
+
+        ctx.arc(cx, cy, r, d2a(startAng - 90), d2a(endAng - 90), false);
+
+        ctx.lineTo(cx,cy);
+
+        ctx.closePath();
+
+        ctx.fillStyle=color;
+
+        ctx.fill();
+
+        ctx.stroke();
+
+      }
+      //1.数据
+      let data=[1000, 750, 500 ,6234];
+      let colors=['#CF0', '#C0F', '#CFC', '#0CF'];
+
+      //2.总和
+      let sum=data.reduce((tmp,item,index)=>tmp+item);
+
+      //3.数据占比->角度占比
+      let angs=data.map(item=>360*item/sum);
+
+      //4.画——以上一个pie的结束角作为，下一个pie的开始
+      let last=0;
+
+      angs.forEach((ang, index)=>{
+        pei(last,last+ang,colors[index])
+        last+=ang;
+      });
+
+      
     }
 
     function d2a(n) {

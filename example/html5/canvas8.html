@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>canvas</title>
+  <script>
+    window.onload = function () {
+
+      let c1 = document.getElementById('cancas1')
+
+      let ctx = c1.getContext('2d')
+
+      let a = 100;
+      let b = 100;
+      let flag = false;
+      setInterval(() => {
+        ctx.beginPath();
+        ctx.clearRect(0, 0, c1.width, c1.height)
+        if (a + 100 >= c1.width) {
+          flag = true;
+        }
+
+        if (a <= 0) {
+          flag = false;
+        }
+
+        if (flag) {
+          ctx.strokeRect(a--, b, 100, 100)
+        } else {
+          ctx.strokeRect(a++, b, 100, 100)
+        }
+
+      }, 10);
+
+      c1.onclick=function(ev){
+        
+        let offsetx = ev.offsetX
+        let offsety = ev.offsetY
+
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <canvas height="800px" width="800px" id="cancas1"></canvas>
+</body>
+
+</html>

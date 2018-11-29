@@ -153,6 +153,12 @@
         - beginPath 清除之前所有路径
         - closePath 闭合路径
             - [范例2][canvas2](../example/html5/canvas2.html)
+    - 文字
+        
+        - strokeText 描边字体 空心字
+        - fillText 填充字体  实心字
+        - font 字体样式
+
 ###### 形状
 - 矩形
     - 参数
@@ -163,6 +169,8 @@
     - 路径版
        
         - rect
+        - clearRect 擦除给定矩形里的数据,实现动画
+        - [矩形擦除][canvas8](../example/html5/canvas8.html) 
     - 直接出图
       
         - strokeRect
@@ -172,6 +180,23 @@
 
     - arc(cx,cy,r,startAng,endAng,是否逆时针)   cx cy 确定圆心, r 半径,startAng 起始角度 ,      endAng结束角度,是否逆时针
     - [弧形][canvas5](../example/html5/canvas5.html)
+##### 变换，图片
+
+- 旋转
+    
+    - rotate() 旋转图像,整个画布都旋转
+    - translate() 重新映射画布0.0的位置
+    - save() 保存canvas的状态
+    - restart() 恢复状态
+
+        -  [旋转][canvas9](../example/html5/canvas9.html)
+
+- 图片
+    
+    - drawImage
+
+        -  [图片][canvas10](../example/html5/canvas10.html)
+
 
 ##### 实例
 
@@ -182,3 +207,4 @@
 ![饼图参数](../assets/picture/饼图.png)
 ![饼图计算](../assets/picture/饼图计算.png)
 [饼图][canvas6](../example/html5/canvas6.html)
+[饼图][canvas7](../example/html5/canvas7.html)
