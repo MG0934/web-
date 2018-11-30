@@ -180,7 +180,7 @@
 
     - arc(cx,cy,r,startAng,endAng,是否逆时针)   cx cy 确定圆心, r 半径,startAng 起始角度 ,      endAng结束角度,是否逆时针
     - [弧形][canvas5](../example/html5/canvas5.html)
-##### 变换，图片
+##### 变换，图片，像素操作
 
 - 旋转
     
@@ -196,6 +196,18 @@
     - drawImage
 
         -  [图片][canvas10](../example/html5/canvas10.html)
+
+- 像素操作
+    
+    - putImageData 把图像数据（从指定的 ImageData 对象）放回画布上
+
+- 放大缩小
+
+    - scale	缩放当前绘图至更大或更小
+
+- 导出图片
+
+    - toDataURL 转成base64
 
 
 ##### 实例
